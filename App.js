@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import Decks from './features/decks';
 import NewDeck from './features/newDeck';
+import IndividualDeck from './features/individualDeck';
 
 const Tabs = TabNavigator({
   Decks: {
@@ -22,6 +23,9 @@ const Tabs = TabNavigator({
 const MainNavigator = StackNavigator({
   Home: {
     screen: Tabs,
+  },
+  IndividualDeck: {
+    screen: IndividualDeck,
   },
 });
 
