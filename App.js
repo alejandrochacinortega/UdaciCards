@@ -4,6 +4,8 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 import Decks from './features/decks';
 import NewDeck from './features/newDeck';
 import IndividualDeck from './features/individualDeck';
+import AddQuestion from './features/addQuestion';
+import QuizScreen from './features/quiz';
 
 const Tabs = TabNavigator({
   Decks: {
@@ -12,20 +14,29 @@ const Tabs = TabNavigator({
       tabBarLabel: 'Decks',
     },
   },
-  NewDeck: {
-    screen: NewDeck,
-    navigationOptions: {
-      tabBarLabel: 'Create Deck',
-    },
-  },
+  // NewDeck: {
+  //   screen: NewDeck,
+  //   navigationOptions: {
+  //     tabBarLabel: 'Create Deck',
+  //   },
+  // },
 });
 
 const MainNavigator = StackNavigator({
   Home: {
-    screen: Tabs,
+    screen: Decks,
+  },
+  NewDeck: {
+    screen: NewDeck,
   },
   IndividualDeck: {
     screen: IndividualDeck,
+  },
+  AddQuestion: {
+    screen: AddQuestion,
+  },
+  Quiz: {
+    screen: QuizScreen,
   },
 });
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import Button from '../../components/Button';
 
 class IndividualDeck extends Component {
   render() {
@@ -15,12 +16,21 @@ class IndividualDeck extends Component {
       >
         <Text>{deck.title}</Text>
         <Text>{deck.questions.length} cards</Text>
-        <TouchableOpacity onPress={() => console.log('Add Card')}>
-          <Text>Add Card</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => console.log('start quiz')}>
-          <Text>Start quiz</Text>
-        </TouchableOpacity>
+        <Button
+          onPress={() =>
+            this.props.navigation.navigate('AddQuestion', { title: deck.title })
+          }
+          text="Add card"
+          backgroundColor="gray"
+          textColor="white"
+        />
+
+        <Button
+          onPress={() => this.props.navigation.navigate('Quiz', { deck })}
+          text="Start Quiz"
+          backgroundColor="gray"
+          textColor="white"
+        />
       </View>
     );
   }

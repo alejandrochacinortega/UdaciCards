@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, AsyncStorage } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  AsyncStorage,
+  ScrollView,
+} from 'react-native';
 import data from '../../data';
-import { DECKS_STORAGE_KEY } from '../api';
+import { DECKS_STORAGE_KEY, clear } from '../api';
+import Button from '../../components/Button';
 
 class Decks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      decks: null,
+      decks: false,
     };
   }
 
@@ -29,10 +36,10 @@ class Decks extends Component {
           style={{
             backgroundColor: 'white',
             alignItems: 'center',
-            flex: 1,
             justifyContent: 'center',
             borderWidth: 1,
             borderColor: 'gray',
+            paddingVertical: 20,
           }}
         >
           <Text>{deck.title}</Text>
@@ -43,6 +50,7 @@ class Decks extends Component {
   };
 
   async componentDidMount() {
+    // clear();
     const response = await AsyncStorage.getItem(DECKS_STORAGE_KEY);
 
     console.log(' here my friend ', response);
@@ -55,15 +63,50 @@ class Decks extends Component {
 
   render() {
     console.log('decks ', this.state.decks);
-    if (!this.state.decks) {
+
+    if (this.state.decks == null) {
       return (
         <View>
-          <Text>Loading...</Text>
+          <Text>Add new card</Text>
         </View>
       );
     }
 
-    return <View style={{ flex: 1 }}>{this.renderDecks()}</View>;
+    // if (!this.state.decks) {
+    //   return (
+    //     <View>
+    //       <Text>Loading...</Text>
+    //     </View>
+    //   );
+    // }
+
+    return (
+      <View
+        style={{
+          backgroundColor: 'white',
+          flex: 1,
+        }}
+      >
+        <ScrollView style={{ flex: 1, marginBottom: 100 }}>
+          {this.renderDecks()}
+        </ScrollView>
+        <Button
+          onPress={() => this.props.navigation.navigate('NewDeck')}
+          backgroundColor="gray"
+          textColor="white"
+          text="New Card"
+          styles={{
+            position: 'absolute',
+            bottom: 30,
+            alignSelf: 'center',
+            width: '90%',
+          }}
+          stylesText={{
+            alignSelf: 'center',
+          }}
+        />
+      </View>
+    );
   }
 }
 

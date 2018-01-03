@@ -24,3 +24,7 @@ export function removeEntry(key) {
 export function getDecks() {
   return AsyncStorage.getItem(DECKS_STORAGE_KEY);
 }
+
+export function clear() {
+  return AsyncStorage.clear();
+}
