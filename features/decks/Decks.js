@@ -53,8 +53,6 @@ class Decks extends Component {
     // clear();
     const response = await AsyncStorage.getItem(DECKS_STORAGE_KEY);
 
-    console.log(' here my friend ', response);
-
     // you might want to do the I18N setup here
     this.setState({
       decks: JSON.parse(response),
@@ -62,12 +60,17 @@ class Decks extends Component {
   }
 
   render() {
-    console.log('decks ', this.state.decks);
-
     if (this.state.decks == null) {
       return (
-        <View>
-          <Text>Add new card</Text>
+        <View
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+        >
+          <Button
+            onPress={() => this.props.navigation.navigate('NewDeck')}
+            backgroundColor="gray"
+            textColor="white"
+            text="New Card"
+          />
         </View>
       );
     }

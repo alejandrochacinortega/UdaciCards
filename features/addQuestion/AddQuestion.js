@@ -26,8 +26,6 @@ class AddQuestion extends Component {
       deck.questions = deck.questions.concat(questionToPush);
     });
 
-    console.log('decks', decks);
-
     await submitEntry(deck, deck.title);
     // this.props.navigation.navigate('Decks');
 
@@ -40,10 +38,6 @@ class AddQuestion extends Component {
     });
     this.props.navigation.dispatch(resetAction);
   };
-
-  componentDidMount() {
-    console.log('cleaning');
-  }
 
   render() {
     return (

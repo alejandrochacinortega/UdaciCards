@@ -21,14 +21,14 @@ class IndividualDeck extends Component {
             this.props.navigation.navigate('AddQuestion', { title: deck.title })
           }
           text="Add card"
-          backgroundColor="gray"
+          backgroundColor="green"
           textColor="white"
         />
 
         <Button
           onPress={() => this.props.navigation.navigate('Quiz', { deck })}
           text="Start Quiz"
-          backgroundColor="gray"
+          backgroundColor="orange"
           textColor="white"
         />
       </View>

@@ -3,7 +3,6 @@ import { AsyncStorage } from 'react-native';
 export const DECKS_STORAGE_KEY = 'decks';
 
 export function submitEntry(entry, key) {
-  console.log('entry ', entry);
   return AsyncStorage.mergeItem(
     DECKS_STORAGE_KEY,
     JSON.stringify({
