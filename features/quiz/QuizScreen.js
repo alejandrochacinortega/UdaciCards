@@ -32,6 +32,7 @@ class QuizScreen extends Component {
     this.state = {
       correctAnswers: 0,
       showAnswer: false,
+      currentIndex: 1,
     };
   }
 
@@ -72,6 +73,7 @@ class QuizScreen extends Component {
         ref={component => {
           this.swiper = component;
         }}
+        onIndexChanged={index => this.setState({ currentIndex: index + 1 })}
       >
         {deck.questions.map((question, index) => {
           return (
@@ -82,6 +84,9 @@ class QuizScreen extends Component {
               }}
             >
               <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <Text>
+                  Question {this.state.currentIndex} / {deck.questions.length}
+                </Text>
                 <Text style={{ fontSize: 30 }}>
                   {this.state.showAnswer ? question.answer : question.question}
                 </Text>
