@@ -23,6 +23,10 @@ var styles = StyleSheet.create({
 });
 
 class QuizScreen extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Quiz',
+  });
+
   constructor(props) {
     super(props);
     this.state = {
@@ -50,7 +54,6 @@ class QuizScreen extends Component {
   };
 
   toggleAnswer = () => {
-    console.log('Show answer');
     this.setState(previousState => {
       return {
         showAnswer: !previousState.showAnswer,

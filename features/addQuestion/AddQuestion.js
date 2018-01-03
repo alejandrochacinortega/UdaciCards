@@ -5,6 +5,10 @@ import Button from '../../components/Button';
 import { getDecks, submitEntry } from '../api';
 
 class AddQuestion extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Add Card',
+  });
+
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +53,7 @@ class AddQuestion extends Component {
           alignItems: 'center',
         }}
       >
-        <View style={{ marginVertical: 10 }}>
+        <View style={{ marginVertical: 10, width: '90%' }}>
           <Text style={{ fontSize: 25, paddingBottom: 10 }}>Question</Text>
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
@@ -57,7 +61,7 @@ class AddQuestion extends Component {
             value={this.state.question}
           />
         </View>
-        <View style={{ marginVertical: 10 }}>
+        <View style={{ marginVertical: 10, width: '90%' }}>
           <Text style={{ fontSize: 25, paddingBottom: 10 }}>Answer</Text>
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}

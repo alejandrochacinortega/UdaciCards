@@ -3,6 +3,10 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import Button from '../../components/Button';
 
 class IndividualDeck extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: navigation.state.params.deck.title,
+  });
+
   render() {
     const { deck } = this.props.navigation.state.params;
     return (

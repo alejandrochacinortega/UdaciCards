@@ -11,6 +11,10 @@ import { submitEntry, DECKS_STORAGE_KEY } from '../api';
 import Button from '../../components/Button';
 
 class NewDeck extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'New Card',
+  });
+
   constructor(props) {
     super(props);
     this.state = {

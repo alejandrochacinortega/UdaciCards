@@ -11,6 +11,10 @@ import { DECKS_STORAGE_KEY, clear } from '../api';
 import Button from '../../components/Button';
 
 class Decks extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Decks',
+  });
+
   constructor(props) {
     super(props);
     this.state = {
@@ -69,19 +73,11 @@ class Decks extends Component {
             onPress={() => this.props.navigation.navigate('NewDeck')}
             backgroundColor="gray"
             textColor="white"
-            text="New Card"
+            text="New Deck"
           />
         </View>
       );
     }
-
-    // if (!this.state.decks) {
-    //   return (
-    //     <View>
-    //       <Text>Loading...</Text>
-    //     </View>
-    //   );
-    // }
 
     return (
       <View
